@@ -13,6 +13,28 @@ main {
     display: flex;
 }
 
+aside {
+    width: 25%;
+    height: 90vh;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    background-color: #DCDCDC;
+}
+
+aside div:first-child {
+    height: 60%;
+    border-bottom-style: solid;
+}
+
+aside div:last-child {
+    height: 40%;
+}
+
+aside > div > div {
+    text-align: center;
+    background-color: bisque;
+}
+
 article {
     width: 75%;
     height: 90vh;
@@ -43,51 +65,21 @@ article > div > div {
     visibility: hidden;
 }*/
 
-
-aside {
-    width: 25%;
-    height: 90vh;
-    border-bottom-style: solid;
-    border-top-style: solid;
-    background-color: #DCDCDC;
-}
-
-aside div:first-child {
-    height: 60%;
-    border-bottom-style: solid;
-}
-
-aside div:last-child {
-    height: 40%;
-}
-
 footer {
     background-color: grey;
     height: 5vh;
 }
 
 .dropper {
-    -moz-transition: all 200ms linear;
-    -webkit-transition: all 200ms linear;
-    -o-transition: all 200ms linear;
     transition: all 200ms linear;
 }
 
 .drop_hover {
-    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
 }
 
 .draggable {
     cursor: move;
-
-    -moz-transition: all 200ms linear;
-    -webkit-transition: all 200ms linear;
-    -o-transition: all 200ms linear;
     transition: all 200ms linear;
-
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
     user-select: none;
 }

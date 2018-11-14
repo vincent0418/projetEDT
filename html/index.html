@@ -8,56 +8,75 @@
     <title>Emploi du temps</title>
 </head>
 
-
 <body>
     <header>
         header
     </header>
     <main>
+        <script src="../js/dragDrop.js"></script>
+        <script src="../js/newLesson.js"></script>
         <aside>
             <div>
                 Selection groupe
             </div>
-
             <div>
-                Selection cours
+                <select id="subject_id">
+                    <option value="Algo">Algo</option>
+                    <option value="Conception">Conception</option>
+                    <option value="Maths">Maths</option>
+                    <option value="Anglais">Anglais</option>
+                </select>
+
+                <select id="room_id">
+                    <option value="K031">K031</option>
+                    <option value="K127">K127</option>
+                </select>
+
+                <select id="teacher_id">
+                    <option value="BOUGERET MARIN">BOUGERET MARIN</option>
+                    <option value="CHIROUZE ANNE">CHIROUZE ANNE</option>
+                    <option value="PALLEJA NATHALIE">PALLEJA NATHALIE</option>
+                </select>
+            </div>
+            <div id="cours">
+                <button onclick="addLesson(2)">Créer</button>
             </div>
         </aside>
+
         <article>
-            <div class="dropper" id="lundi">
+            <div id="lundi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Lundi</p>
             </div>
 
-            <div class="dropper" id="mardi">
+            <div id="mardi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Mardi</p>
-                <div class="draggable">
+                <div id="1" draggable="true" ondragstart="drag(event)">
                     <p>Algo. Avancée</p>
                     <p>K114</p>
                     <p>BOUGERET MARIN</p>
                 </div>
             </div>
 
-            <div class="dropper" id="mercredi">
+            <div id="mercredi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Mercredi</p>
-                <div class="draggable">
+                <div id="2" draggable="true" ondragstart="drag(event)">
                     <p>B.D. Avancés</p>
                     <p>K131</p>
                     <p>PALLEJA NATHALIE</p>
                 </div>
             </div>
 
-            <div class="dropper" id="jeudi">
+            <div id="jeudi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Jeudi</p>
             </div>
 
-            <div class="dropper" id="vendredi">
+            <div id="vendredi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Vendredi</p>
             </div>
 
-            <div class="dropper" id="samedi">
+            <div id="samedi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Samedi</p>
             </div>
-            <script src="../js/index.js"></script>
         </article>
     </main>
     <footer>
