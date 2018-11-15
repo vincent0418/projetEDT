@@ -1,4 +1,4 @@
-var id = 3;
+var id = 1;
 
 function addLesson(hour) {
     // crée un nouvel élément div 
@@ -20,7 +20,9 @@ function addLesson(hour) {
     newDiv.id = id;
     newDiv.draggable = "true";
     newDiv.setAttribute("ondragstart", "drag(event)");
-    //newDiv.style.height = hour + "0vh";
+    
+    var duration = parseFloat(document.getElementById("duration_id").value, 10);
+    newDiv.style.height = (duration * 7.25) + "0vh";
 
     // ajoute le nouvel élément créé et son contenu dans le DOM 
     var currentDiv = document.getElementById("cours");

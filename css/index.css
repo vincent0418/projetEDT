@@ -26,10 +26,6 @@ aside div:first-child {
     border-bottom-style: solid;
 }
 
-aside div:last-child {
-    height: 40%;
-}
-
 aside > div > div {
     text-align: center;
     background-color: bisque;
@@ -43,6 +39,15 @@ article {
     display: flex;
 }
 
+article > div#hour {
+    width: 10%;
+    line-height: 7vh;
+}
+
+article > div#hour > p:first-child {
+    height: 2.6vh;
+}
+
 article > div {
     background-color: #DCDCDC;
     border-right-style: solid;
@@ -51,8 +56,11 @@ article > div {
 }
 
 article > div > p {
-    margin: 0px;
     border-bottom: solid;
+}
+
+article > div p {
+    margin: 0px;
 }
 
 article > div > div {
@@ -68,18 +76,4 @@ article > div > div {
 footer {
     background-color: grey;
     height: 5vh;
-}
-
-.dropper {
-    transition: all 200ms linear;
-}
-
-.drop_hover {
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
-}
-
-.draggable {
-    cursor: move;
-    transition: all 200ms linear;
-    user-select: none;
 }

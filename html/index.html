@@ -37,33 +37,46 @@
                     <option value="CHIROUZE ANNE">CHIROUZE ANNE</option>
                     <option value="PALLEJA NATHALIE">PALLEJA NATHALIE</option>
                 </select>
+                <select id="duration_id">
+                    <option value="1">1h</option>
+                    <option value="1.5">1h30</option>
+                    <option value="2">2h</option>
+                    <option value="2.5">2h30</option>
+                    <option value="3">3h</option>
+                </select>
             </div>
             <div id="cours">
-                <button onclick="addLesson(2)">Créer</button>
+                <button onclick="addLesson()">Créer</button>
             </div>
         </aside>
 
         <article>
+            <div id="hour">
+                <p></p>
+                <p>8h</p>
+                <p>9h</p>
+                <p>10h</p>
+                <p>11h</p>
+                <p>12h</p>
+                <p>13h</p>
+                <p>14h</p>
+                <p>15h</p>
+                <p>16h</p>
+                <p>17h</p>
+                <p>18h</p>
+                <p>19h</p>
+            </div>
+
             <div id="lundi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Lundi</p>
             </div>
 
             <div id="mardi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Mardi</p>
-                <div id="1" draggable="true" ondragstart="drag(event)">
-                    <p>Algo. Avancée</p>
-                    <p>K114</p>
-                    <p>BOUGERET MARIN</p>
-                </div>
             </div>
 
             <div id="mercredi" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <p>Mercredi</p>
-                <div id="2" draggable="true" ondragstart="drag(event)">
-                    <p>B.D. Avancés</p>
-                    <p>K131</p>
-                    <p>PALLEJA NATHALIE</p>
-                </div>
             </div>
 
             <div id="jeudi" ondrop="drop(event)" ondragover="allowDrop(event)">
