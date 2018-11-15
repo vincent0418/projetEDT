@@ -1,16 +1,80 @@
+/*--------------------------------------------------------
+ * PROJET S3
+ * Emploie du temps département Informatique Montpellier
+ * Copyright 2018/2019 | Tous droits réservés.
+--------------------------------------------------------*/
+
+
+/*------------------------------
+	GENERAL
+------------------------------*/
+
+html {
+  display: flex;
+  flex-direction: column;
+} /* IE fix */
+
 body {
-    background-color: ;
-    margin: auto
+  display: flex; /* crée un contexte flex pour ses enfants */
+  flex-direction: column; /* affichage vertical */
+  min-height: 100vh; /* toute la hauteur du viewport (compatible IE9+) */
 }
 
-header {
-    display: block;
-    background-color: grey;
-    height: 5vh;
+.wrapper {
+  display: block; /* IE fix */
+  flex: 1 1 auto; /* occupe la hauteur restante */
+  display: flex; /* crée un contexte flex pour ses enfants */
+  flex-direction: row; /* affichage horizontal */
+}
+
+.content {
+  display: block; /* IE fix */
+  flex: 1; /* occupe la largeur restante */
+}
+
+.contentswitch {
+  display: block; /* IE fix */
+  flex: 2; /* occupe la largeur restante */
+}
+
+
+/*------------------------------
+	STRUCTURE
+------------------------------*/
+
+/*-------- 1. GENERAL --------*/
+
+body {
+	margin: 0;
+  font-family: "Lato", arial;
+	background-color: #fff;
+  color:#333333;
+	font-size: 1.1em;
 }
 
 main {
     display: flex;
+}
+
+/*-------- 2. HEADER --------*/
+
+header {
+    display: flex;
+    height: 4.9vh;
+    background-color: #5e8b6f;
+    color: white;
+}
+
+header > img {
+    width: 4em;
+    position: relative;
+    left: 2%;
+}
+
+header > div {
+  position: relative;
+  top: 25%;
+  left: 4%;
 }
 
 aside {
@@ -18,7 +82,7 @@ aside {
     height: 90vh;
     border-bottom-style: solid;
     border-top-style: solid;
-    background-color: #DCDCDC;
+    background-color: #ece8d9;
 }
 
 aside div:first-child {
@@ -35,7 +99,7 @@ article {
     width: 75%;
     height: 90vh;
     border-style: solid;
-    background-color: #DCDCDC;
+    background-color: #fffdf6;
     display: flex;
 }
 
@@ -49,7 +113,7 @@ article > div#hour > p:first-child {
 }
 
 article > div {
-    background-color: #DCDCDC;
+    background-color: fffdf6;
     border-right-style: solid;
     width: 100%;
     text-align: center;
@@ -74,6 +138,8 @@ article > div > div {
 }*/
 
 footer {
-    background-color: grey;
-    height: 5vh;
+    height: 4.9vh;
+    background-color: #5e8b6f;
+    color: white;
+    text-align: center;
 }
