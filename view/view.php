@@ -2,55 +2,31 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-
-    <title>Emploi du temps</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>
+        <?php echo $pagetitle; ?>
+    </title>
 </head>
 
 <body>
     <header>
-        <img src="../img/IUT-Montpellier.png" alt="logo">
+        <img src="img/IUT-Montpellier.png" alt="logo">
         <div>
           Logiciel d'emploi du temps
         </div>
     </header>
     <main>
-        <script src="../js/dragDrop.js"></script>
-        <script src="../js/newLesson.js"></script>
+        <script src="js/dragDrop.js"></script>
+        <script src="js/newLesson.js"></script>
         <aside>
             <div>
                 Selection groupe
             </div>
-            <div>
-                <select id="subject_id">
-                    <option value="Algo">Algo</option>
-                    <option value="Conception">Conception</option>
-                    <option value="Maths">Maths</option>
-                    <option value="Anglais">Anglais</option>
-                </select>
-
-                <select id="room_id">
-                    <option value="K031">K031</option>
-                    <option value="K127">K127</option>
-                </select>
-
-                <select id="teacher_id">
-                    <option value="BOUGERET MARIN">BOUGERET MARIN</option>
-                    <option value="CHIROUZE ANNE">CHIROUZE ANNE</option>
-                    <option value="PALLEJA NATHALIE">PALLEJA NATHALIE</option>
-                </select>
-                <select id="duration_id">
-                    <option value="1">1h</option>
-                    <option value="1.5">1h30</option>
-                    <option value="2">2h</option>
-                    <option value="2.5">2h30</option>
-                    <option value="3">3h</option>
-                </select>
-            </div>
-            <div id="cours">
-                <button onclick="addLesson()">Créer</button>
-            </div>
+            <?php
+                $filepath = File::build_path(array("view", $controller, "$view.php"));
+                require $filepath;
+            ?>
         </aside>
 
         <article>
@@ -99,3 +75,5 @@
         © IUT Montpellier. Tous droits réservés.
     </footer>
 </body>
+
+</html>
