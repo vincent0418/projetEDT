@@ -10,31 +10,44 @@
 ------------------------------*/
 
 html {
-  display: flex;
-  flex-direction: column;
-} /* IE fix */
+    display: flex;
+    flex-direction: column;
+}
+
+/* IE fix */
 
 body {
-  display: flex; /* crée un contexte flex pour ses enfants */
-  flex-direction: column; /* affichage vertical */
-  min-height: 100vh; /* toute la hauteur du viewport (compatible IE9+) */
+    display: flex;
+    /* crée un contexte flex pour ses enfants */
+    flex-direction: column;
+    /* affichage vertical */
+    min-height: 100vh;
+    /* toute la hauteur du viewport (compatible IE9+) */
 }
 
 .wrapper {
-  display: block; /* IE fix */
-  flex: 1 1 auto; /* occupe la hauteur restante */
-  display: flex; /* crée un contexte flex pour ses enfants */
-  flex-direction: row; /* affichage horizontal */
+    display: block;
+    /* IE fix */
+    flex: 1 1 auto;
+    /* occupe la hauteur restante */
+    display: flex;
+    /* crée un contexte flex pour ses enfants */
+    flex-direction: row;
+    /* affichage horizontal */
 }
 
 .content {
-  display: block; /* IE fix */
-  flex: 1; /* occupe la largeur restante */
+    display: block;
+    /* IE fix */
+    flex: 1;
+    /* occupe la largeur restante */
 }
 
 .contentswitch {
-  display: block; /* IE fix */
-  flex: 2; /* occupe la largeur restante */
+    display: block;
+    /* IE fix */
+    flex: 2;
+    /* occupe la largeur restante */
 }
 
 
@@ -45,11 +58,11 @@ body {
 /*-------- 1. GENERAL --------*/
 
 body {
-	margin: 0;
-  font-family: "Lato", arial;
-	background-color: #fff;
-  color:#333333;
-	font-size: 1.1em;
+    margin: 0;
+    font-family: "Lato", arial;
+    background-color: #fff;
+    color: #333333;
+    font-size: 1.1em;
 }
 
 main {
@@ -72,9 +85,9 @@ header > img {
 }
 
 header > div {
-  position: relative;
-  top: 25%;
-  left: 4%;
+    position: relative;
+    top: 25%;
+    left: 4%;
 }
 
 aside {
@@ -109,7 +122,7 @@ article > div#hour {
 }
 
 article > div#hour > p:first-child {
-    height: 2.6vh;
+    height: 2.9vh;
 }
 
 article > div {
@@ -131,8 +144,18 @@ article > div > div {
     background-color: bisque;
 }
 
-/*
-#lundi {
+
+/*#lundi {
+    position: absolute;
+    visibility: hidden;
+}
+
+#mardi {
+    position: absolute;
+    visibility: hidden;
+}
+
+#mercredi {
     position: absolute;
     visibility: hidden;
 }*/

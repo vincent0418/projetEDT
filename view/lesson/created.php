@@ -1,4 +1,3 @@
 <?php
-$tab_v = ModelLesson::getAlllessons();
-require_once (File::build_path(array("view/lesson", "list.php")));
+require_once (File::build_path(array("view", "lesson", "create.php")));
 ?>

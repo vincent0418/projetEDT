@@ -1,26 +1,23 @@
 <?php
 require_once (File::build_path(array("model", "ModelLesson.php"))); // chargement du modèle
 class ControllerLesson {
-    /*
+    
     public static function readAll() {
         $controller='lesson';
-        $view='list';
-        $pagetitle='Liste des lessons';
-        $tab_v = ModelLesson::getAlllessons();     //appel au modèle pour gerer la BD
+        $view='read';
+        $tab_lesson = ModelLesson::getLessonByGroup($_GET['group']);     //appel au modèle pour gerer la BD
         require (File::build_path(array("view", "view.php")));  //"redirige" vers la vue
-    }*/
+    }
     
     public static function create() {
         $controller='lesson';
         $view='create';
-        $pagetitle='Emploi du temps';
         require (File::build_path(array("view", "view.php")));
     }
     
     public static function created() {
         $controller='lesson';
         $view='created';
-        $pagetitle='Emploi du temps';
         $v = new ModelLesson($_GET['teacher'], $_GET['subject'], 'Q1', $_GET['room'], $_GET['duration']);
         $v->save();
         require (File::build_path(array("view", "view.php")));

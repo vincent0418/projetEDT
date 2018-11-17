@@ -9,5 +9,5 @@ if(isset($_GET['action'])) {
 else
     $action = 'create';
 // Appel de la méthode statique $action de ControllerLesson
-ControllerLesson::$action(); 
+ControllerLesson::$action();
 ?>

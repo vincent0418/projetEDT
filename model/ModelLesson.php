@@ -39,7 +39,7 @@ require_once (File::build_path(array("model", "Model.php")));
     }
 
     public function save() {
-        $sql = "INSERT INTO sch_Lesson (idTeacher,  idSubject, idGroup, idRoom, duration) 
+        $sql = "INSERT INTO sch_Lesson (idTeacher, idSubject, idGroup, idRoom, duration) 
                 VALUES (:teacher, :subject, :group, :room, :duration)";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
@@ -55,47 +55,26 @@ require_once (File::build_path(array("model", "Model.php")));
         $req_prep->execute($values);
     }
     
-    /*
-    public static function getlessonByGroup($idGroupe) {
-        $sql = "SELECT * from lesson WHERE immatriculation=:nom_tag";
+    public static function getlessonByGroup($idGroup) {
+        $sql = "SELECT * 
+                FROM sch_Lesson 
+                WHERE idGroup=:group";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
         $values = array(
-            "nom_tag" => $immat,
+            "group" => $idGroup,
         );
         // On donne les valeurs et on exécute la requête   
         $req_prep->execute($values);
 
         // On récupère les résultats comme précédemment
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLesson');
-        $tab_voit = $req_prep->fetchAll();
+        $tab_lesson = $req_prep->fetchAll(PDO::FETCH_ASSOC);
         // Attention, si il n'y a pas de résultats, on renvoie false
-        if (empty($tab_voit))
+        if (empty($tab_lesson))
             return false;
-        return $tab_voit[0];
+        return $tab_lesson;
     }
-      
-    public static function deleteByImmat($immat) {
-        $sql = "DELETE FROM lesson 
-                WHERE immatriculation = :immatriculation";
-        // Préparation de la requête
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $values = array(
-            'immatriculation' => $immat,
-        );
-        // On donne les valeurs et on exécute la requête
-        $req_prep->execute($values);
-    }
-      
-    public static function update($data) {
-        $sql = "UPDATE lesson
-                SET couleur = :couleur, marque = :marque
-                WHERE immatriculation = :immatriculation";
-        $req_prep = Model::$pdo->prepare($sql);
-        
-        $req_prep->execute($data);
-    }*/
   }
 ?>
