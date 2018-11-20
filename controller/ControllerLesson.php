@@ -18,8 +18,8 @@ class ControllerLesson {
     public static function created() {
         $controller='lesson';
         $view='created';
-        $v = new ModelLesson($_GET['teacher'], $_GET['subject'], 'Q1', $_GET['room'], $_GET['duration']);
-        $v->save();
+        $l = new ModelLesson($_GET['teacher'], $_GET['subject'], 'Q1', $_GET['room'], $_GET['duration']);
+        $l->save();
         require (File::build_path(array("view", "view.php")));
     }
     

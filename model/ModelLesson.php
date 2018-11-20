@@ -54,11 +54,47 @@ require_once (File::build_path(array("model", "Model.php")));
         // On donne les valeurs et on exécute la requête   
         $req_prep->execute($values);
     }
+      
+    public static function delete($idLesson) {
+        $sql = "DELETE FROM sch_Lesson
+                WHERE idLesson = :idLesson";
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $values = array(
+            'idLesson' => $idLesson,
+        );
+        // On donne les valeurs et on exécute la requête
+        $req_prep->execute($values);
+    }
     
     public static function getlessonByGroup($idGroup) {
         $sql = "SELECT * 
                 FROM sch_Lesson 
                 WHERE idGroup=:group";
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $values = array(
+            "group" => $idGroup,
+        );
+        // On donne les valeurs et on exécute la requête   
+        $req_prep->execute($values);
+
+        // On récupère les résultats comme précédemment
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLesson');
+        $tab_lesson = $req_prep->fetchAll(PDO::FETCH_ASSOC);
+        // Attention, si il n'y a pas de résultats, on renvoie false
+        if (empty($tab_lesson))
+            return false;
+        return $tab_lesson;
+    }
+      
+    public static function getNewlessonByGroup($idGroup) {
+        $sql = "SELECT * 
+                FROM sch_Lesson 
+                WHERE idGroup=:group
+                AND day IS NULL";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 

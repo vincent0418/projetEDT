@@ -18,15 +18,31 @@
     </header>
     <main>
         <script src="js/dragDrop.js"></script>
-        <script src="js/newLesson.js"></script>
         <aside>
             <div>
                 Selection groupe
             </div>
-            <?php
+            <div>
+                <?php
                 $filepath = File::build_path(array("view", $controller, "$view.php"));
                 require $filepath;
-            ?>
+
+                $tab_lesson = ModelLesson::getNewLessonByGroup('Q1');
+                if($tab_lesson) {
+                    $size = sizeof($tab_lesson);
+                    if($size > 1) {
+                        for($i = 0; $i < $size - 1; $i++)
+                            ModelLesson::delete($tab_lesson[$i]['idLesson']);
+                    }
+                    $duration = $tab_lesson[$size-1]['duration'] * 7;
+                    echo "<div style=\"height:{$duration}vh\">
+                              <p>{$tab_lesson[$size-1]['idSubject']}</p>
+                              <p>{$tab_lesson[$size-1]['idRoom']}</p>
+                              <p>{$tab_lesson[$size-1]['idTeacher']}</p>
+                          </div>";
+                }
+                ?>
+            </div>
         </aside>
 
         <article>
