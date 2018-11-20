@@ -95,12 +95,14 @@ aside {
     height: 90vh;
     border-bottom-style: solid;
     border-top-style: solid;
+    border-width: 1.5px;
     background-color: #ece8d9;
 }
 
 aside div:first-child {
     height: 60%;
     border-bottom-style: solid;
+    border-width: 1.5px;
 }
 
 aside > div > div {
@@ -111,36 +113,50 @@ aside > div > div {
 article {
     width: 75%;
     height: 90vh;
-    border-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-width: 1.5px;
     background-color: #fffdf6;
     display: flex;
 }
 
-article > div#hour {
-    width: 10%;
-    line-height: 7vh;
+article > div > span {
+    display: block;
 }
 
-article > div#hour > p:first-child {
-    height: 2.9vh;
+article > div#hour {
+    width: 10%;
+    display: inline-block;
+}
+
+article > div#hour > p {
+    position: relative;
+    top: 2.8vh;
+    font-size: small;
+    height: 3.6vh;
+    border-top: solid;
+    border-width: 1.5px;
 }
 
 article > div {
     background-color: fffdf6;
     border-right-style: solid;
+    border-width: 1.5px;
     width: 100%;
     text-align: center;
 }
 
-article > div > p {
+article > div:not(#hour) > p {
     border-bottom: solid;
+    border-width: 1.5px;
 }
 
 article > div p {
     margin: 0px;
 }
 
-article > div > div {
+article > div  div {
     background-color: bisque;
 }
 
