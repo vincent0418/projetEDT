@@ -35,7 +35,7 @@
                             ModelLesson::delete($tab_lesson[$i]['idLesson']);
                     }
                     $duration = $tab_lesson[$size-1]['duration'] * 7;
-                    echo "<div style=\"height:{$duration}vh\">
+                    echo "<div id=\"{$tab_lesson[$size-1]['idLesson']}\" style=\"height:{$duration}vh\" draggable=\"true\" ondragstart=\"drag(event)\">
                               <p>{$tab_lesson[$size-1]['idSubject']}</p>
                               <p>{$tab_lesson[$size-1]['idRoom']}</p>
                               <p>{$tab_lesson[$size-1]['idTeacher']}</p>
