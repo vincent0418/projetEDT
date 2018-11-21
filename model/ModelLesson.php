@@ -68,8 +68,12 @@ require_once (File::build_path(array("model", "Model.php")));
         $req_prep->execute($values);
     }
     
-    public static function getLessonByGroup($idGroupe) {
-        $sql = "SELECT DISTINCT nameSubject FROM sch_Lesson l JOIN sch_Subject s ON l.idSubject=s.idSubject WHERE idGroup=:group";
+    public static function getLessonByGroup($idGroup) {
+        $sql = "SELECT * 
+                FROM sch_Teacher t
+                JOIN sch_Lesson l on t.idTeacher = l.idTeacher
+                JOIN sch_Subject s ON l.idSubject = s.idSubject 
+                WHERE idGroup=:group";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -81,14 +85,11 @@ require_once (File::build_path(array("model", "Model.php")));
 
         // On récupère les résultats comme précédemment
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLesson');
-        $tab_lesson = $req_prep->fetchAll();
+        $tab_lesson = $req_prep->fetchAll(PDO::FETCH_ASSOC);
         // Attention, si il n'y a pas de résultats, on renvoie un message d'erreur
-        if (empty($tab_lesson)) {
-            return "Il n'y a pas de cours pour ce groupe.";
-        }
-        for ($i=0;$i<count($tab_lesson);$i++) { 
-            echo $tab_lesson[i]."</br>";
-        }
+        if (empty($tab_lesson))
+            return false;
+        return $tab_lesson;
     }
       
     public static function getNewlessonByGroup($idGroup) {
@@ -115,7 +116,10 @@ require_once (File::build_path(array("model", "Model.php")));
     }
 
     public static function getTeacherByLesson($idLesson) {
-        $sql = "SELECT DISTINCT nameTeacher, firstNameTeacher FROM sch_Lesson l JOIN sch_Teacher t ON l.idTeacher=t.idTeacher WHERE idSubject=:subject";
+        $sql = "SELECT DISTINCT nameTeacher, firstNameTeacher 
+                FROM sch_Lesson l 
+                JOIN sch_Teacher t ON l.idTeacher=t.idTeacher 
+                WHERE idSubject=:subject";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -127,14 +131,11 @@ require_once (File::build_path(array("model", "Model.php")));
 
         // On récupère les résultats comme précédemment
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLesson');
-        $tab_teacher = $req_prep->fetchAll();
+        $tab_teacher = $req_prep->fetchAll(PDO::FETCH_ASSOC);
         // Attention, si il n'y a pas de résultats, on renvoie un message d'erreur
-        if (empty($tab_teacher)) {
-            return "Il n'y a pas de professeur pour cette matière.";
-        }
-        for ($i=0;$i<count($tab_teacher);$i++) { 
-            echo $tab_teacher[i]."</br>";
-        }
+        if (empty($tab_teacher))
+            return false;
+        return $tab_teacher;
     }
     
   }
