@@ -9,5 +9,9 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    var target = ev.target;
+    while (target.className.indexOf('dropper') == -1) { // Cette boucle permet de remonter jusqu'à la zone de drop parente
+        target = target.parentNode;
+    }
+    target.appendChild(document.getElementById(data));
 }
