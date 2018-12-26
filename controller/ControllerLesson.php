@@ -3,7 +3,7 @@ require_once (File::build_path(array("model", "ModelLesson.php"))); // chargemen
 
 class ControllerLesson {
 	
-	protected static $object = 'Lesson';
+	protected static $object = 'lesson';
     
     public static function readAll() {
 		$tab_lesson = ModelLesson::getLessonByGroup('Q1');

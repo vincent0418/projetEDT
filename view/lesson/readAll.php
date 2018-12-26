@@ -1,6 +1,8 @@
 <aside>
 	<div>
-		Selection groupe
+		<?php
+		require File::build_path(array("view", static::$object, "groupList.php"));
+		?>
 	</div>
 	<div>
 		<?php
