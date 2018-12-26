@@ -1,17 +1,18 @@
 <?php
-
 require_once (File::build_path(array("model", "Model.php")));
 
-  class ModelLesson {
-     
-    private $idLesson;
-    private $idTeacher;
-    private $idSubject;
-    private $idGroup;
-    private $idRoom;
-    private $hourStart;
-    private $duration;
-    private $day;
+class ModelLesson extends Model{
+    
+	protected static $object = "Lesson";
+	protected static $primary = "idLesson";
+    protected $idLesson;
+    protected $idTeacher;
+    protected $idSubject;
+    protected $idGroup;
+    protected $idRoom;
+    protected $hourStart;
+    protected $duration;
+    protected $day;
         
     // Constructeur
     public function __construct($t = NULL, $s = NULL, $g = NULL, $r = NULL, $d = NULL) {
@@ -37,37 +38,8 @@ require_once (File::build_path(array("model", "Model.php")));
             $this->$nom_attribut = $valeur;
         return false;
     }
-
-    public function save() {
-        $sql = "INSERT INTO sch_Lesson (idTeacher, idSubject, idGroup, idRoom, duration) 
-                VALUES (:teacher, :subject, :group, :room, :duration)";
-        // Préparation de la requête
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $values = array(
-            'teacher' => $this->idTeacher,
-            'subject' => $this->idSubject,
-            'group' => $this->idGroup,
-            'room' => $this->idRoom,
-            'duration' => $this->duration,
-        );
-        // On donne les valeurs et on exécute la requête   
-        $req_prep->execute($values);
-    }
-      
-    public static function delete($idLesson) {
-        $sql = "DELETE FROM sch_Lesson
-                WHERE idLesson = :idLesson";
-        // Préparation de la requête
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $values = array(
-            'idLesson' => $idLesson,
-        );
-        // On donne les valeurs et on exécute la requête
-        $req_prep->execute($values);
-    }
     
+	// Retourne toutes les lecons du groupe passe en parametre
     public static function getLessonByGroup($idGroup) {
         $sql = "SELECT * 
                 FROM sch_Teacher t
@@ -91,12 +63,17 @@ require_once (File::build_path(array("model", "Model.php")));
             return false;
         return $tab_lesson;
     }
-      
+     
+	// Retourne toutes les lecons du groupe passe en parametre
+	// qui ne sont pas attribuées a un jour 
     public static function getNewlessonByGroup($idGroup) {
         $sql = "SELECT * 
-                FROM sch_Lesson 
+                FROM sch_Teacher t
+                JOIN sch_Lesson l on t.idTeacher = l.idTeacher
+                JOIN sch_Subject s ON l.idSubject = s.idSubject
                 WHERE idGroup=:group
-                AND day IS NULL";
+                AND day IS NULL
+				ORDER BY idLesson";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -114,29 +91,5 @@ require_once (File::build_path(array("model", "Model.php")));
             return false;
         return $tab_lesson;
     }
-
-    public static function getTeacherByLesson($idLesson) {
-        $sql = "SELECT DISTINCT nameTeacher, firstNameTeacher 
-                FROM sch_Lesson l 
-                JOIN sch_Teacher t ON l.idTeacher=t.idTeacher 
-                WHERE idSubject=:subject";
-        // Préparation de la requête
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $values = array(
-            "subject" => $idLesson,
-        );
-        // On donne les valeurs et on exécute la requête   
-        $req_prep->execute($values);
-
-        // On récupère les résultats comme précédemment
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLesson');
-        $tab_teacher = $req_prep->fetchAll(PDO::FETCH_ASSOC);
-        // Attention, si il n'y a pas de résultats, on renvoie un message d'erreur
-        if (empty($tab_teacher))
-            return false;
-        return $tab_teacher;
-    }
-    
   }
 ?>

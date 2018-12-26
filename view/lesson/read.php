@@ -1,13 +1,8 @@
-<?php
-    require_once (File::build_path(array("model", "ModelLesson.php")));
-    $tab_lesson = ModelLesson::getLessonByGroup('Q1');
-?>
-
 <div id="hour">
-    <?php
+	<?php
     $h = 8;
     for($i = 0; $i < 11; $i++) {
-        echo "<p>{$h}h00</p>
+		echo "<p>{$h}h00</p>
               <p>{$h}h30</p>";
         $h++;
     }
@@ -16,8 +11,8 @@
 </div>
 
 <div id="Lundi" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <p>Lundi</p>
-    <?php
+	<p>Lundi</p>
+	<?php
     for($i = 0; $i < 48; $i++) {
         echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" style=\"height:1.81vh\">";
         foreach ($tab_lesson as $cle => $valeur){
@@ -36,8 +31,8 @@
 </div>
 
 <div id="Mardi" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <p>Mardi</p>
-    <?php
+	<p>Mardi</p>
+	<?php
     for($i = 0; $i < 48; $i++) {
         echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" style=\"height:1.81vh\">";
         foreach ($tab_lesson as $cle => $valeur){
@@ -56,8 +51,8 @@
 </div>
 
 <div id="Mercredi" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <p>Mercredi</p>
-    <?php
+	<p>Mercredi</p>
+	<?php
     for($i = 0; $i < 48; $i++) {
         echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" style=\"height:1.81vh\">";
         foreach ($tab_lesson as $cle => $valeur){
@@ -76,8 +71,8 @@
 </div>
 
 <div id="Jeudi">
-    <p>Jeudi</p>
-    <?php
+	<p>Jeudi</p>
+	<?php
     for($i = 0; $i < 48; $i++) {
         echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" style=\"height:1.81vh\">";
         foreach ($tab_lesson as $cle => $valeur){
@@ -96,8 +91,8 @@
 </div>
 
 <div id="Vendredi">
-    <p>Vendredi</p>
-    <?php
+	<p>Vendredi</p>
+	<?php
     for($i = 0; $i < 48; $i++) {
         echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" style=\"height:1.81vh\">";
         foreach ($tab_lesson as $cle => $valeur){
@@ -116,8 +111,8 @@
 </div>
 
 <div id="Samedi">
-    <p>Samedi</p>
-    <?php
+	<p>Samedi</p>
+	<?php
     for($i = 0; $i < 48; $i++) {
         echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" style=\"height:1.81vh\">";
         foreach ($tab_lesson as $cle => $valeur){

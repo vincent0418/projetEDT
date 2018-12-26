@@ -10,9 +10,7 @@ class Model {
 		$login = Conf::getLogin();
 		$password = Conf::getPassword();
 		try{
-			// Connexion à la base de données            
-			// Le dernier argument sert à ce que toutes les chaines de caractères 
-			// en entrée et sortie de MySql soit dans le codage UTF-8
+			// Connexion à la base de données
   			self::$pdo = new PDO("mysql:host=$hostname;dbname=$database_name",$login,$password,
   								array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
   			// On active le mode d'affichage des erreurs, et le lancement d'exception en cas d'erreur
@@ -26,6 +24,56 @@ class Model {
 		  die();
 		}
 	}
+	
+	public function save() {
+        $table_name = static::$object;
+		$class_name = 'Model' . $table_name;
+        $champs = "";
+        foreach ($this as $cle => $valeur){
+            $champs = $champs .':'.$cle.',';
+        }
+        try{
+            $sql = "INSERT INTO sch_$table_name VALUES (".rtrim($champs, ',').")";
+            // Préparation de la requête
+            $req_prep = Model::$pdo->prepare($sql);
+
+            foreach ($this as $cle => $valeur){
+                $values[$cle] = $valeur;
+        }
+        // On donne les valeurs et on exécute la requête   
+        $req_prep->execute($values);
+        } catch(PDOException $e) {
+            if (Conf::getDebug())
+                echo $e->getMessage(); // affiche un message d'erreur
+            else
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            die();
+		}
+    }
+	
+	public static function delete($primary_value) {
+        $table_name = static::$object;
+		$class_name = 'Model' . ucfirst($table_name);
+        $primary_key = static::$primary;
+        try {
+            $sql = "DELETE FROM sch_$table_name
+                    WHERE $primary_key = :primary";
+            // Préparation de la requête
+            $req_prep = Model::$pdo->prepare($sql);
+
+            $values = array(
+                'primary' => $primary_value,
+            );
+            // On donne les valeurs et on exécute la requête
+            $req_prep->execute($values);
+        } catch(PDOException $e) {
+			if (Conf::getDebug())
+				echo $e->getMessage(); // affiche un message d'erreur
+			else
+				echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+			die();
+		}
+    }
 }
 Model::Init();
 ?>
