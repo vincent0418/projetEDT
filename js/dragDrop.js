@@ -14,4 +14,18 @@ function drop(ev) {
 		target = target.parentNode;
 	}
 	target.appendChild(document.getElementById(data)); // Ajout de l'element drag dans l'element drop
+
+	var listSpan = target.parentNode.querySelectorAll("span"); // liste de toutes les balises span du jour
+	listSpan.forEach(
+		function (currentValue, currentIndex, listObj) {
+			if (currentValue == target) { // si la balise correspond a la balise cible
+				var xhr = new XMLHttpRequest();
+				var idLesson = parseInt(data, 10);
+				var hourStart = currentIndex / 4 + 8;
+				var day = target.parentNode.id;
+				xhr.open('GET', 'http://localhost/schedule/model/update.php?idLesson=' + idLesson + '&hourStart=' + hourStart + '&day=' + day);
+				xhr.send(null);
+			}
+		}
+	)
 }

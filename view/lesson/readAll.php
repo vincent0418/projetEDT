@@ -27,7 +27,6 @@
 
 <article>
 	<?php
-		$filepath = File::build_path(array("view", static::$object, "read.php"));
-		require $filepath;
+		require File::build_path(array("view", static::$object, "read.php"));
 	?>
 </article>

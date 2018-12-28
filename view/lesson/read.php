@@ -10,7 +10,7 @@
     ?>
 </div>
 
-<div id="Lundi" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)">
+<div id="Lundi">
 	<p>Lundi</p>
 	<?php
     for($i = 0; $i < 48; $i++) {
@@ -30,7 +30,7 @@
     ?>
 </div>
 
-<div id="Mardi" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)">
+<div id="Mardi">
 	<p>Mardi</p>
 	<?php
     for($i = 0; $i < 48; $i++) {
@@ -50,7 +50,7 @@
     ?>
 </div>
 
-<div id="Mercredi" class="dropper" ondrop="drop(event)" ondragover="allowDrop(event)">
+<div id="Mercredi">
 	<p>Mercredi</p>
 	<?php
     for($i = 0; $i < 48; $i++) {
