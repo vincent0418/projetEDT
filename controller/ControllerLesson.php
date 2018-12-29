@@ -6,14 +6,16 @@ class ControllerLesson {
 	protected static $object = 'lesson';
     
     public static function readAll() {
-		$tab_lesson = ModelLesson::getLessonByGroup('Q1');
-		$tab_newLesson = ModelLesson::getNewLessonByGroup('Q1');
+		$tab_group = explode("_", myGet('idGroup'));	// transforme la string en array
+		$tab_lesson = ModelLesson::getLessonByGroup($tab_group);
+		$tab_newLesson = ModelLesson::getNewLessonByGroup($tab_group[0]);
         $view='readAll';
         require (File::build_path(array("view", "view.php")));
     }
     
     public static function created() {
-        $l = new ModelLesson(myGet('teacher'), myGet('subject'), 'Q1', myGet('room'), myGet('duration'));
+		$tab_group = explode("_", myGet('idGroup'));
+        $l = new ModelLesson(myGet('teacher'), myGet('subject'), $tab_group[0], myGet('room'), myGet('duration'));
         $l->save();
         self::readAll();
     }

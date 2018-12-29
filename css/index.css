@@ -10,44 +10,44 @@
 ------------------------------*/
 
 html {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 /* IE fix */
 
 body {
-    display: flex;
-    /* crée un contexte flex pour ses enfants */
-    flex-direction: column;
-    /* affichage vertical */
-    min-height: 100vh;
-    /* toute la hauteur du viewport (compatible IE9+) */
+	display: flex;
+	/* crée un contexte flex pour ses enfants */
+	flex-direction: column;
+	/* affichage vertical */
+	min-height: 100vh;
+	/* toute la hauteur du viewport (compatible IE9+) */
 }
 
 .wrapper {
-    display: block;
-    /* IE fix */
-    flex: 1 1 auto;
-    /* occupe la hauteur restante */
-    display: flex;
-    /* crée un contexte flex pour ses enfants */
-    flex-direction: row;
-    /* affichage horizontal */
+	display: block;
+	/* IE fix */
+	flex: 1 1 auto;
+	/* occupe la hauteur restante */
+	display: flex;
+	/* crée un contexte flex pour ses enfants */
+	flex-direction: row;
+	/* affichage horizontal */
 }
 
 .content {
-    display: block;
-    /* IE fix */
-    flex: 1;
-    /* occupe la largeur restante */
+	display: block;
+	/* IE fix */
+	flex: 1;
+	/* occupe la largeur restante */
 }
 
 .contentswitch {
-    display: block;
-    /* IE fix */
-    flex: 2;
-    /* occupe la largeur restante */
+	display: block;
+	/* IE fix */
+	flex: 2;
+	/* occupe la largeur restante */
 }
 
 
@@ -58,106 +58,128 @@ body {
 /*-------- 1. GENERAL --------*/
 
 body {
-    margin: 0;
-    font-family: "Lato", arial;
-    background-color: #fff;
-    color: #333333;
-    font-size: 1.1em;
+	margin: 0;
+	font-family: "Lato", arial;
+	background-color: #fff;
+	color: #333333;
+	font-size: 1.1em;
 }
 
 main {
-    display: flex;
+	display: flex;
 }
 
 /*-------- 2. HEADER --------*/
 
 header {
-    display: flex;
-    height: 4.9vh;
-    background-color: #5e8b6f;
-    color: white;
+	display: flex;
+	height: 4.9vh;
+	background-color: #5e8b6f;
+	color: white;
 }
 
 header > img {
-    width: 4em;
-    position: relative;
-    left: 2%;
+	width: 4em;
+	position: relative;
+	left: 2%;
 }
 
 header > div {
-    position: relative;
-    top: 25%;
-    left: 4%;
+	position: relative;
+	top: 25%;
+	left: 4%;
 }
 
+/*-------- 3. ASIDE --------*/
+
 aside {
-    width: 25%;
-    height: 90vh;
-    border-bottom-style: solid;
-    border-top-style: solid;
-    border-width: 1.5px;
-    background-color: #ece8d9;
+	width: 25%;
+	height: 90vh;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-width: 1.5px;
+	background-color: #ece8d9;
 }
 
 aside div:first-child {
-    height: 60%;
-    border-bottom-style: solid;
-    border-width: 1.5px;
+	height: 60%;
+	border-bottom-style: solid;
+	border-width: 1.5px;
 }
 
 aside > div > div {
-    text-align: center;
-    background-color: bisque;
+	text-align: center;
+	background-color: bisque;
 }
+
+/*-------- 4. ARTICLE --------*/
 
 article {
-    width: 75%;
-    height: 90vh;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-width: 1.5px;
-    background-color: #fffdf6;
-    display: flex;
-}
-
-article > div > span {
-    display: block;
-}
-
-article > div#hour {
-    width: 10%;
-    display: inline-block;
-}
-
-article > div#hour > p {
-    position: relative;
-    top: 2.8vh;
-    font-size: small;
-    height: 3.6vh;
-    border-top: solid;
-    border-width: 1.5px;
+	width: 75%;
+	height: 90vh;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-width: 1.5px;
+	background-color: #fffdf6;
+	display: flex;
 }
 
 article > div {
-    background-color: fffdf6;
-    border-right-style: solid;
-    border-width: 1.5px;
-    width: 100%;
-    text-align: center;
+	background-color: fffdf6;
+	border-right-style: solid;
+	border-width: 2px;
+	width: 100%;
+	text-align: center;
 }
+
+article p {
+	margin: 0px;
+}
+
+/* Hour */
+
+article > div#hour {
+	width: 10%;
+	display: inline-block;
+}
+
+article > div#hour > p {
+	position: relative;
+	top: 2.8vh;
+	font-size: small;
+	height: 3.6vh;
+	border-top: solid;
+	border-width: 1.5px;
+}
+
+/* Day */
 
 article > div:not(#hour) > p {
-    border-bottom: solid;
-    border-width: 1.5px;
+	border-bottom: solid;
+	border-width: 1.5px;
 }
 
-article > div p {
-    margin: 0px;
+article > div > div {
+	display: flex;
+	height: 100%;
 }
 
-article > div  div {
-    background-color: bisque;
+article > div > div > div {
+	width: 100%;
+}
+
+article span {
+	display: block;
+	height: 1.81vh;
+}
+
+article span > div {
+	background-color: bisque;
+}
+
+article > div > span > div {
+	background-color: bisque;
 }
 
 /*
@@ -176,9 +198,11 @@ article > div  div {
     visibility: hidden;
 }*/
 
+/*-------- 5. FOOTER --------*/
+
 footer {
-    height: 4.9vh;
-    background-color: #5e8b6f;
-    color: white;
-    text-align: center;
+	height: 4.9vh;
+	background-color: #5e8b6f;
+	color: white;
+	text-align: center;
 }

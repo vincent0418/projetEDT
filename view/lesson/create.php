@@ -22,6 +22,7 @@
 		<option value="2.5">2h30</option>
 		<option value="3">3h</option>
 	</select>
+	<input type='hidden' name='idGroup' value="<?php echo myGet('idGroup'); ?>">
 	<input type='hidden' name='action' value='created'>
 	<div>
 		<input type="submit" value="Envoyer" />

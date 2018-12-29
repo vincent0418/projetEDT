@@ -32,12 +32,12 @@
 		<ul>
 			<li> Semestre 3 </li>
 			<ul>
-				<li>
-					<a href="#"> Q1 </a> -
-					<a href="#"> Q2 </a> -
-					<a href="#"> Q3 </a> -
-					<a href="#"> Q4 </a>
-				</li>
+				<select multiple onchange="getSelectValues(this)">>
+					<option> Q1 </option>
+					<option> Q2 </option>
+					<option> Q3 </option>
+					<option> Q4 </option>
+				</select>
 			</ul>
 		</ul>
 		<ul>
@@ -53,3 +53,21 @@
 		</ul>
 	</ul>
 </nav>
+
+<script>
+	// Retourne une liste des options selectionees
+	function getSelectValues(select) {
+		var result = [];
+		var options = select;
+
+		for (var i = 0; i < options.length; i++) {
+			if (options[i].selected) {
+				result.push(options[i].text);
+			}
+		}
+		setTimeout(function() {
+			document.location.href = "http://localhost/schedule/index.php?idGroup=" + result.join('_');
+		}, 2000);
+	}
+
+</script>
