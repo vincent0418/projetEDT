@@ -32,7 +32,7 @@
 		<ul>
 			<li> Semestre 3 </li>
 			<ul>
-				<select multiple onchange="getSelectValues(this)">>
+				<select multiple onchange="getSelectValues(this)">
 					<option> Q1 </option>
 					<option> Q2 </option>
 					<option> Q3 </option>
@@ -63,10 +63,11 @@
 		for (var i = 0; i < options.length; i++) {
 			if (options[i].selected) {
 				result.push(options[i].text);
+				0
 			}
 		}
 		setTimeout(function() {
-			document.location.href = "http://localhost/schedule/index.php?idGroup=" + result.join('_');
+			document.location.href = document.location.origin + document.location.pathname + "?idGroup=" + result.join('_');
 		}, 2000);
 	}
 

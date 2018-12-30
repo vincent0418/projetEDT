@@ -23,7 +23,7 @@ function drop(ev) {
 				var idLesson = parseInt(data, 10);
 				var hourStart = currentIndex / 4 + 8;
 				var day = target.parentNode.parentNode.parentNode.id;
-				xhr.open('GET', 'http://localhost/schedule/model/update.php?idLesson=' + idLesson + '&hourStart=' + hourStart + '&day=' + day);
+				xhr.open('GET', document.location.origin + document.location.pathname.slice(0, -10) + "/model/update.php?idLesson=" + idLesson + "&hourStart=" + hourStart + "&day=" + day);
 				xhr.send(null);
 			}
 		}

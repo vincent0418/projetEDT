@@ -14,9 +14,9 @@
 	<p>Lundi</p>
 	<div>
 		<?php
-		for($j = 0; $j < sizeof($tab_group); $j++) {
+		for($j = 0; $j < sizeof($tab_group); $j++) { 	// boucle par rapport au nombre de groupe
 			echo "<div>";
-			for($i = 0; $i < 48; $i++) {
+			for($i = 0; $i < 48; $i++) {	// boucle pour les crenaux horaires
 				echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\">";
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Lundi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {

@@ -11,13 +11,13 @@ function myGet($nomvar) {
 }
 
 // On recupère l'action passée dans l'URL
-if(!is_null(myGet('action'))) {
-    $action = myGet('action');
-    if(!in_array($action, get_class_methods('ControllerLesson')))
-       $action = 'error';
+if(!is_null(myGet("action"))) {
+    $action = myGet("action");
+    if(!in_array($action, get_class_methods("ControllerLesson")))
+       $action = "error";
 }
 else
-    $action = 'readAll';
+    $action = "readAll";
 // Appel de la méthode statique $action de ControllerLesson
 ControllerLesson::$action();
 ?>
