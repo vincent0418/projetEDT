@@ -63,9 +63,6 @@ class ModelLesson extends Model{
 			// On récupère les résultats comme précédemment
 			$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLesson');
 			$tab_lesson = $req_prep->fetchAll(PDO::FETCH_ASSOC);
-			// Attention, si il n'y a pas de résultats, on renvoie un message d'erreur
-			if (empty($tab_lesson))
-				return false;
 			return $tab_lesson;
 		} catch(PDOException $e) {
             if (Conf::getDebug())

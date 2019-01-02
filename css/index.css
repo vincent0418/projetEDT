@@ -112,6 +112,10 @@ aside > div > div {
 	background-color: bisque;
 }
 
+aside > div > div > p {
+	margin: 0;
+}
+
 /*-------- 4. ARTICLE --------*/
 
 article {
@@ -119,7 +123,6 @@ article {
 	height: 90vh;
 	border-top-style: solid;
 	border-bottom-style: solid;
-	border-left-style: solid;
 	border-width: 1.5px;
 	background-color: #fffdf6;
 	display: flex;
@@ -146,7 +149,7 @@ article > div#hour {
 
 article > div#hour > p {
 	position: relative;
-	top: 2.8vh;
+	top: 2.2vh;
 	font-size: small;
 	height: 3.6vh;
 	border-top: solid;
@@ -167,11 +170,21 @@ article > div > div {
 
 article > div > div > div {
 	width: 100%;
+	overflow: hidden;
+}
+
+article > div > div > div:not(:first-child) {
+	border-left-style: solid;
+	border-width: 1.5px;
 }
 
 article span {
 	display: block;
-	height: 1.81vh;
+	height: 1.75vh;
+}
+
+article span:not(:first-child) {
+	margin-top: 1.25px;
 }
 
 article span > div {
