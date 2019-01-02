@@ -126,6 +126,7 @@ article {
 	border-width: 1.5px;
 	background-color: #fffdf6;
 	display: flex;
+	overflow: auto;
 }
 
 article > div {
@@ -189,10 +190,7 @@ article span:not(:first-child) {
 
 article span > div {
 	background-color: bisque;
-}
-
-article > div > span > div {
-	background-color: bisque;
+	overflow: hidden;
 }
 
 /*

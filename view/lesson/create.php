@@ -1,4 +1,4 @@
-<form method="POST" action="index.php">
+<form method="POST" action="index.php?idGroup=<?php echo myGet('idGroup'); ?>">
 	<select name="subject">
 		<option value="2">Algo</option>
 		<option value="3">BD</option>
