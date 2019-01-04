@@ -15,7 +15,7 @@
 					ModelLesson::delete($tab_newLesson[$i]['idLesson']);	// on supprime le cours
 			}
 			$duration = $tab_newLesson[$size-1]['duration'] * 7;
-			echo "<div id=\"{$tab_newLesson[$size-1]['idLesson']}\" style=\"height:{$duration}vh\" draggable=\"true\" ondragstart=\"drag(event)\">
+			echo "<div id=\"{$tab_newLesson[$size-1]['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$tab_newLesson[$size-1]['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
 					  <p>{$tab_newLesson[$size-1]['nameSubject']}</p>
 					  <p>{$tab_newLesson[$size-1]['idRoom']}</p>
 					  <p>{$tab_newLesson[$size-1]['nameTeacher']} {$tab_newLesson[$size-1]['firstNameTeacher']}</p>

@@ -30,7 +30,7 @@
 	<ul>
 		<li> 2ème Année </li>
 		<ul>
-			<li> Semestre 3 </li>
+			<li><a href="index.php?idGroup=Q1_Q2_Q3_Q4">Semestre 3</a></li>
 			<ul>
 				<select multiple onchange="getSelectValues(this)">
 					<option> Q1 </option>
@@ -41,7 +41,7 @@
 			</ul>
 		</ul>
 		<ul>
-			<li> Semestre 4 </li>
+			<li>Semestre 4</li>
 			<ul>
 				<li>
 					<a href="#"> Q1 </a> -
@@ -52,34 +52,6 @@
 			</ul>
 		</ul>
 	</ul>
-
-<script src="js/Selectday.js"></script>
-   		<div>
-      		<input type="checkbox" checked onclick="displayDay(this)" >Lundi</input>
-      		
-      	</div>
-      		
-        <div>	
-      		<input type="checkbox" checked onclick="displayDay(this)">Mardi</input>
-      	</div>	
-      		
-   		<div>
-      		<input type="checkbox" checked onclick="displayDay(this)">Mercredi</input>
-      	</div>	
-      		
-   		<div>
-      		<input type="checkbox" checked onclick="displayDay(this)">Jeudi</input>
-      	</div>	
-      		
-   		<div>
-      		<input type="checkbox" checked onclick="displayDay(this)">Vendredi</input>
-      	</div>	
-      
-   		<div>
-      		<input type="checkbox" checked onclick="displayDay(this)">Samedi</input>
-      	</div>	
-	
-
 </nav>
 
 <script>

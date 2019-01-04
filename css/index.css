@@ -14,6 +14,11 @@ html {
 	flex-direction: column;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 /* IE fix */
 
 body {
@@ -102,10 +107,9 @@ aside {
 }
 
 aside div:first-child {
-	height: 65%;
+	height: 60%;
 	border-bottom-style: solid;
 	border-width: 1.5px;
-	overflow : auto;
 }
 
 aside > div > div {
@@ -134,7 +138,7 @@ article > div {
 	background-color: fffdf6;
 	border-right-style: solid;
 	border-width: 2px;
-	width: 90%;
+	width: 100%;
 	text-align: center;
 }
 
@@ -151,7 +155,7 @@ article > div#hour {
 
 article > div#hour > p {
 	position: relative;
-	top: 2.8vh;
+	top: 2.2vh;
 	font-size: small;
 	height: 3.6vh;
 	border-top: solid;
@@ -163,7 +167,6 @@ article > div#hour > p {
 article > div:not(#hour) > p {
 	border-bottom: solid;
 	border-width: 1.5px;
-	height : 2.8vh;
 }
 
 article > div > div {
@@ -195,6 +198,21 @@ article span > div {
 	overflow: hidden;
 }
 
+/*
+#Lundi {
+    position: absolute;
+    visibility: hidden;
+}
+
+#Mardi {
+    position: absolute;
+    visibility: hidden;
+}
+
+#Mercredi {
+    position: absolute;
+    visibility: hidden;
+}*/
 
 /*-------- 5. FOOTER --------*/
 

@@ -21,7 +21,7 @@
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Lundi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
-						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh\" draggable=\"true\" ondragstart=\"drag(event)\">
+						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -47,7 +47,7 @@
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Mardi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
-						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh\" draggable=\"true\" ondragstart=\"drag(event)\">
+						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -73,7 +73,7 @@
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Mercredi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
-						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh\" draggable=\"true\" ondragstart=\"drag(event)\">
+						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -99,7 +99,7 @@
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Jeudi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
-						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh\" draggable=\"true\" ondragstart=\"drag(event)\">
+						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -125,7 +125,7 @@
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Vendredi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
-						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh\" draggable=\"true\" ondragstart=\"drag(event)\">
+						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -151,7 +151,7 @@
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Samedi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
-						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh\" draggable=\"true\" ondragstart=\"drag(event)\">
+						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
