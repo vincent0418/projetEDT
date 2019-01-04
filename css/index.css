@@ -110,6 +110,7 @@ aside div:first-child {
 	height: 60%;
 	border-bottom-style: solid;
 	border-width: 1.5px;
+    overflow: auto;
 }
 
 aside > div > div {
@@ -155,7 +156,7 @@ article > div#hour {
 
 article > div#hour > p {
 	position: relative;
-	top: 2.2vh;
+	top: 2.8vh;
 	font-size: small;
 	height: 3.6vh;
 	border-top: solid;
@@ -167,6 +168,7 @@ article > div#hour > p {
 article > div:not(#hour) > p {
 	border-bottom: solid;
 	border-width: 1.5px;
+    height: 2.8vh;
 }
 
 article > div > div {
@@ -197,22 +199,6 @@ article span > div {
 	background-color: bisque;
 	overflow: hidden;
 }
-
-/*
-#Lundi {
-    position: absolute;
-    visibility: hidden;
-}
-
-#Mardi {
-    position: absolute;
-    visibility: hidden;
-}
-
-#Mercredi {
-    position: absolute;
-    visibility: hidden;
-}*/
 
 /*-------- 5. FOOTER --------*/
 

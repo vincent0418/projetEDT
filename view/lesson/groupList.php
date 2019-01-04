@@ -85,16 +85,16 @@
 <script>
 	// Retourne une liste des options selectionees
 	function getSelectValues(select) {
-		var result = [];
-		var options = select;
+        setTimeout(function() {
+            var result = [];
+            var options = select;
 
-		for (var i = 0; i < options.length; i++) {
-			if (options[i].selected) {
-				result.push(options[i].text);
-				0
-			}
-		}
-		setTimeout(function() {
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].selected) {
+                    result.push(options[i].text);
+                    0
+                }
+            }
 			document.location.href = document.location.origin + document.location.pathname + "?idGroup=" + result.join('_');
 		}, 2000);
 	}
