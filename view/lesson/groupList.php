@@ -52,6 +52,34 @@
 			</ul>
 		</ul>
 	</ul>
+
+<script src="js/Selectday.js"></script>
+   		<div>
+      		<input type="checkbox" checked onclick="displayDay(this)" >Lundi</input>
+      		
+      	</div>
+      		
+        <div>	
+      		<input type="checkbox" checked onclick="displayDay(this)">Mardi</input>
+      	</div>	
+      		
+   		<div>
+      		<input type="checkbox" checked onclick="displayDay(this)">Mercredi</input>
+      	</div>	
+      		
+   		<div>
+      		<input type="checkbox" checked onclick="displayDay(this)">Jeudi</input>
+      	</div>	
+      		
+   		<div>
+      		<input type="checkbox" checked onclick="displayDay(this)">Vendredi</input>
+      	</div>	
+      
+   		<div>
+      		<input type="checkbox" checked onclick="displayDay(this)">Samedi</input>
+      	</div>	
+	
+
 </nav>
 
 <script>

@@ -102,9 +102,10 @@ aside {
 }
 
 aside div:first-child {
-	height: 60%;
+	height: 65%;
 	border-bottom-style: solid;
 	border-width: 1.5px;
+	overflow : auto;
 }
 
 aside > div > div {
@@ -133,7 +134,7 @@ article > div {
 	background-color: fffdf6;
 	border-right-style: solid;
 	border-width: 2px;
-	width: 100%;
+	width: 90%;
 	text-align: center;
 }
 
@@ -150,7 +151,7 @@ article > div#hour {
 
 article > div#hour > p {
 	position: relative;
-	top: 2.2vh;
+	top: 2.8vh;
 	font-size: small;
 	height: 3.6vh;
 	border-top: solid;
@@ -162,6 +163,7 @@ article > div#hour > p {
 article > div:not(#hour) > p {
 	border-bottom: solid;
 	border-width: 1.5px;
+	height : 2.8vh;
 }
 
 article > div > div {
@@ -193,21 +195,6 @@ article span > div {
 	overflow: hidden;
 }
 
-/*
-#Lundi {
-    position: absolute;
-    visibility: hidden;
-}
-
-#Mardi {
-    position: absolute;
-    visibility: hidden;
-}
-
-#Mercredi {
-    position: absolute;
-    visibility: hidden;
-}*/
 
 /*-------- 5. FOOTER --------*/
 
