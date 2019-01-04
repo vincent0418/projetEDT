@@ -26,6 +26,11 @@ class ControllerLesson {
         $l->save();
         self::readAll();
     }
+    
+    public static function delete() {
+        ModelLesson::delete(myGet('idLesson'));
+        self::readAll();
+    }
 	
     public static function error() {
         $view='error';

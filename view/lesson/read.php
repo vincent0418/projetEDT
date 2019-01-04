@@ -16,12 +16,13 @@
 		<?php
 		for($j = 0; $j < sizeof($tab_group); $j++) { 	// boucle par rapport au nombre de groupe
 			echo "<div>";
-			for($i = 0; $i < 48; $i++) {	// boucle pour les crenaux horaires
+			for($i = 0; $i < 45; $i++) {	// boucle pour les crenaux horaires
 				echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\">";
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Lundi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
+                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -42,12 +43,13 @@
 		<?php
 		for($j = 0; $j < sizeof($tab_group); $j++) {
 			echo "<div>";
-			for($i = 0; $i < 48; $i++) {
+			for($i = 0; $i < 45; $i++) {
 				echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\">";
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Mardi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
+                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -68,12 +70,13 @@
 		<?php
 		for($j = 0; $j < sizeof($tab_group); $j++) {
 			echo "<div>";
-			for($i = 0; $i < 48; $i++) {
+			for($i = 0; $i < 45; $i++) {
 				echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\">";
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Mercredi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
+                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -94,12 +97,13 @@
 		<?php
 		for($j = 0; $j < sizeof($tab_group); $j++) {
 			echo "<div>";
-			for($i = 0; $i < 48; $i++) {
+			for($i = 0; $i < 45; $i++) {
 				echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\">";
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Jeudi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
+                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -120,12 +124,13 @@
 		<?php
 		for($j = 0; $j < sizeof($tab_group); $j++) {
 			echo "<div>";
-			for($i = 0; $i < 48; $i++) {
+			for($i = 0; $i < 45; $i++) {
 				echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\">";
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Vendredi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
+                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -146,12 +151,13 @@
 		<?php
 		for($j = 0; $j < sizeof($tab_group); $j++) {
 			echo "<div>";
-			for($i = 0; $i < 48; $i++) {
+			for($i = 0; $i < 45; $i++) {
 				echo "<span class=\"dropper\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\">";
 				foreach ($tab_lesson as $cle => $valeur){
 					if($valeur['day'] == 'Samedi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
+                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>

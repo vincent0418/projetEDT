@@ -147,6 +147,13 @@ article p {
 	margin: 0px;
 }
 
+article a {
+    position: absolute;
+    font-size: xx-small;
+    right: 3px;
+    top: 3px;
+}
+
 /* Hour */
 
 article > div#hour {
@@ -158,9 +165,12 @@ article > div#hour > p {
 	position: relative;
 	top: 2.8vh;
 	font-size: small;
-	height: 3.6vh;
 	border-top: solid;
 	border-width: 1.5px;
+}
+
+article > div#hour > p:not(:last-child) {
+	height: 3.6vh;
 }
 
 /* Day */
@@ -173,7 +183,6 @@ article > div:not(#hour) > p {
 
 article > div > div {
 	display: flex;
-	height: 100%;
 }
 
 article > div > div > div {
@@ -196,8 +205,14 @@ article span:not(:first-child) {
 }
 
 article span > div {
+    position: relative;
 	background-color: bisque;
 	overflow: hidden;
+}
+
+article span > div > p{
+    position: relative;
+	top: 6px;
 }
 
 /*-------- 5. FOOTER --------*/
