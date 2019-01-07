@@ -21,9 +21,14 @@ class ControllerLesson {
     }
     
     public static function created() {
-		$tab_group = explode("_", myGet('idGroup'));
-        $l = new ModelLesson(myGet('teacher'), myGet('subject'), $tab_group[0], myGet('room'), myGet('duration'));
-        $l->save();
+		$group = myGet('idGroup');
+		if($group != NULL) {
+			$tab_group = explode("_", myGet('idGroup'));
+			if(sizeof($tab_group) == 1) {
+				$l = new ModelLesson(myGet('teacher'), myGet('subject'), $tab_group[0], myGet('room'), myGet('duration'));
+				$l->save();
+			}
+		}
         self::readAll();
     }
     
