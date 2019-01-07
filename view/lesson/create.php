@@ -25,6 +25,6 @@
 	<input type='hidden' name='idGroup' value="<?php echo myGet('idGroup'); ?>">
 	<input type='hidden' name='action' value='created'>
 	<div>
-		<input type="submit" value="Envoyer" />
+		<input type="submit" value="Creation" />
 	</div>
 </form>
