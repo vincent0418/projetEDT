@@ -5,16 +5,26 @@
 		<option value="1">Maths</option>
 	</select>
 
-	<select name="room">
-		<option value="K014">K014</option>
-		<option value="K127">K127</option>
-	</select>
+    <p>Salle :
+        <input type="text" name="room" list="tabRoom">
+        <datalist id="tabRoom">
+            <?php
+            foreach ($tab_room as $cle => $valeur) {
+                echo "<option value=\"{$valeur->get("idRoom")}\"></option>";
+            }?>
+        </datalist>
+    </p>
 
-	<select name="teacher">
-		<option value="4">BOUGERET MARIN</option>
-		<option value="5">CHIROUZE ANNE</option>
-		<option value="1">PALLEJA NATHALIE</option>
-	</select>
+    <p>Professeur :
+        <input type="text" name="teacher" list="tabTeacher">
+        <datalist id="tabTeacher">
+            <?php
+            foreach ($tab_teacher as $cle => $valeur) {
+                echo "<option value=\"{$valeur->get("firstNameTeacher")} {$valeur->get("nameTeacher")}\"></option>";
+            }?>
+        </datalist>
+    </p>
+    
 	<select name="duration">
 		<option value="1">1h</option>
 		<option value="1.5">1h30</option>

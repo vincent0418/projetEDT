@@ -50,6 +50,23 @@ class Model {
             die();
 		}
     }
+    
+    public static function selectAll() {
+		$table_name = static::$object;
+		$class_name = 'Model' . ucfirst($table_name);
+		try{
+			$rep = Model::$pdo->query("SELECT * FROM sch_$table_name");
+			$rep->setFetchMode(PDO::FETCH_CLASS, $class_name);
+			$tab = $rep->fetchAll();
+		} catch(PDOException $e) {
+			if (Conf::getDebug())
+				echo $e->getMessage(); // affiche un message d'erreur
+			else
+				echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+			die();
+		}
+		return $tab;
+    }
 	
 	public static function delete($primary_value) {
         $table_name = static::$object;

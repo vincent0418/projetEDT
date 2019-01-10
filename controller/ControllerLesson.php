@@ -1,11 +1,15 @@
 <?php
 require_once (File::build_path(array("model", "ModelLesson.php"))); // chargement du modèle
+require_once (File::build_path(array("model", "ModelTeacher.php")));
+require_once (File::build_path(array("model", "ModelRoom.php")));
 
 class ControllerLesson {
 	
 	protected static $object = 'lesson';
     
     public static function readAll() {
+        $tab_teacher = ModelTeacher::selectAll();
+        $tab_room = ModelRoom::selectAll();
 		$group = myGet('idGroup');
 		if($group != NULL) {
 			$tab_group = explode("_", $group);	// transforme la string en array
@@ -25,7 +29,14 @@ class ControllerLesson {
 		if($group != NULL) {
 			$tab_group = explode("_", myGet('idGroup'));
 			if(sizeof($tab_group) == 1) {
-				$l = new ModelLesson(myGet('teacher'), myGet('subject'), $tab_group[0], myGet('room'), myGet('duration'));
+                $teacherName = explode(' ', myGet('teacher'));
+                $teacher = ModelTeacher::selectByName($teacherName[1], $teacherName[0]);
+                if(!$teacher) {
+                    $t = new ModelTeacher($teacherName[1], $teacherName[0]);
+                    $t->save();
+                    $teacher = ModelTeacher::selectByName($t->get('nameTeacher'), $t->get('firstNameTeacher'));
+                }
+				$l = new ModelLesson(intval($teacher['idTeacher']), myGet('subject'), $tab_group[0], myGet('room'), myGet('duration'));
 				$l->save();
 			}
 		}
