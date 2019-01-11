@@ -1,19 +1,19 @@
 <?php
 require_once (File::build_path(array("model", "Model.php")));
 
-class ModelTeacher extends Model{
+class ModelSubject extends Model{
     
-	protected static $object = "Teacher";
-	protected static $primary = "idTeacher";
-    protected $idTeacher;
-    protected $nameTeacher;
-    protected $firstNameTeacher;
+	protected static $object = "Subject";
+	protected static $primary = "idSubject";
+    protected $idSubject;
+    protected $nameSubject;
+    protected $color;
         
     // Constructeur
-    public function __construct($n = NULL, $f = NULL) {
-      if (!is_null($n) && !is_null($f)) {
-        $this->nameTeacher = $n;
-        $this->firstNameTeacher = $f;
+    public function __construct($n = NULL, $c = NULL) {
+      if (!is_null($n)) {
+        $this->nameSubject = $n;
+        $this->color = $c;
       }
     }
 
@@ -31,19 +31,18 @@ class ModelTeacher extends Model{
         return false;
     }
     
-    // Retourne l'id du professeur en fonction du nom et du prenom
-    public static function selectIdByName($nameTeacher, $firstNameTeacher) {
+    // Retourne l'id de la matiere en fonction du nom
+    public static function selectIdByName($nameSubject) {  
         try{
-            $sql = "SELECT idTeacher
-                    FROM sch_Teacher
-                    WHERE nameTeacher = :name AND firstNameTeacher = :firstName";
+            $sql = "SELECT idSubject
+                    FROM sch_Subject
+                    WHERE nameSubject = :name";
             $req_prep = Model::$pdo->prepare($sql);
             $values = array(
-              "name" => $nameTeacher,
-              "firstName" => $firstNameTeacher,
+              "name" => $nameSubject,
             );
             $req_prep->execute($values);
-            $req_prep->setFetchMode(PDO::FETCH_CLASS, "ModelTeacher");
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, "ModelSubject");
             $tab = $req_prep->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             if (Conf::getDebug())

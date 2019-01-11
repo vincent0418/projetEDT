@@ -1,10 +1,14 @@
 <form method="POST" action="index.php?idGroup=<?php echo myGet('idGroup'); ?>">
-	<select name="subject">
-		<option value="2">Algo</option>
-		<option value="3">BD</option>
-		<option value="1">Maths</option>
-	</select>
-
+    <p>Matiere :
+        <input type="text" name="subject" list="tabSubject">
+        <datalist id="tabSubject">
+            <?php
+            foreach ($tab_subject as $cle => $valeur) {
+                echo "<option value=\"{$valeur->get("nameSubject")}\"></option>";
+            }?>
+        </datalist>
+    </p>
+    
     <p>Salle :
         <input type="text" name="room" list="tabRoom">
         <datalist id="tabRoom">
