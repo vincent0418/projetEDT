@@ -6,13 +6,11 @@ class ModelRoom extends Model{
 	protected static $object = "Room";
 	protected static $primary = "idRoom";
     protected $idRoom;
-    protected $type;
         
     // Constructeur
-    public function __construct($i = NULL, $t = NULL) {
-      if (!is_null($i) && !is_null($t)) {
+    public function __construct($i = NULL) {
+      if (!is_null($i)) {
         $this->idRoom = $i;
-        $this->type = $t;
       }
     }
 

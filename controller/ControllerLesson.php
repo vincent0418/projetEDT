@@ -31,13 +31,20 @@ class ControllerLesson {
 		if($group != NULL) {
 			$tab_group = explode("_", myGet('idGroup'));
 			if(sizeof($tab_group) == 1) {
+				// traitement de la matière
                 $subject = ModelSubject::selectIdByName(myGet('subject'));    // On récupère l'id de la matiere
                 if(!$subject) {     //si la matiere n'existe pas
                     $s = new ModelSubject(myGet('subject'));    //création d'une nouvelle matiere
                     $s->save();     // enregistrement dans la base de données
                     $subject = ModelSubject::selectIdByName($s->get('nameSubject'));    // On récupère l'id de la matiere
                 }
-                
+				// traitement de la salle
+				$room = ModelRoom::select(myGet('room'));    // On récupère la salle
+                if(!$room) {     //si la salle n'existe pas
+                    $r = new ModelRoom(myGet('room'));    //création d'une nouvelle salle
+                    $r->save();     // enregistrement dans la base de données
+                }
+                // traitement du professeur
                 $teacherName = explode(' ', myGet('teacher'));      // transformation d'un string en array pour séparer le nom du prenom
                 $teacher = ModelTeacher::selectIdByName($teacherName[1], $teacherName[0]);  // On récupère l'id du professeur
                 if(!$teacher) {     //si le professeur n'existe pas

@@ -50,6 +50,35 @@ class Model {
             die();
 		}
     }
+	
+	public static function select($primary_value) {
+        $table_name = static::$object;
+		$class_name = 'Model' . ucfirst($table_name);
+        $primary_key = static::$primary;
+        
+        try{
+            $sql = "SELECT * 
+                    FROM sch_$table_name
+                    WHERE $primary_key = :primary";
+            $req_prep = Model::$pdo->prepare($sql);
+            $values = array(
+              "primary" => $primary_value,
+            );  
+            $req_prep->execute($values);
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, $class_name);
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) {
+            if (Conf::getDebug())
+                echo $e->getMessage(); // affiche un message d'erreur
+            else
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            die();
+		}
+        //Si il n'y a pas de résultats, on renvoie false
+        if (empty($tab))
+            return false;
+        return $tab[0];
+    }
     
     public static function selectAll() {
 		$table_name = static::$object;
