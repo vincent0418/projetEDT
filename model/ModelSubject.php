@@ -30,6 +30,24 @@ class ModelSubject extends Model{
             $this->$nom_attribut = $valeur;
         return false;
     }
+	
+	// Retourne une liste des matieres par ordre croissant des noms
+	public static function selectByOrder() {
+		try{
+			$rep = Model::$pdo->query("SELECT * 
+									   FROM sch_Subject
+									   ORDER BY nameSubject");
+			$rep->setFetchMode(PDO::FETCH_CLASS, "ModelSubject");
+			$tab = $rep->fetchAll();
+		} catch(PDOException $e) {
+			if (Conf::getDebug())
+				echo $e->getMessage(); // affiche un message d'erreur
+			else
+				echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+			die();
+		}
+		return $tab;
+    }
     
     // Retourne l'id de la matiere en fonction du nom
     public static function selectIdByName($nameSubject) {  

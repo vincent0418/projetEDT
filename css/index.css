@@ -1,10 +1,3 @@
-/*--------------------------------------------------------
- * PROJET S3
- * Emploie du temps département Informatique Montpellier
- * Copyright 2018/2019 | Tous droits réservés.
---------------------------------------------------------*/
-
-
 /*------------------------------
 	GENERAL
 ------------------------------*/
@@ -106,20 +99,77 @@ aside {
 	background-color: #ece8d9;
 }
 
-aside div:first-child {
+aside p {
+	margin: 0;
+}
+
+/* Select group */
+
+aside > div:first-child {
 	height: 60%;
 	border-bottom-style: solid;
 	border-width: 1.5px;
-    overflow: auto;
+	overflow: auto;
 }
 
-aside > div > div {
+/* Create lesson */
+
+aside > div:last-child {
+	position: relative;
+	height: 40%;
+}
+
+/* Tabs */
+
+aside .tabs {
+	border-bottom: solid;
+	border-width: 1.5px;
+}
+
+aside .tabs > div {
+	display: inline;
+}
+
+aside .tabs > div > a {
+	width: 100%;
+	height: 10%;
+	border: solid;
+	border-bottom: none;
+	border-top-left-radius: 1vh;
+	border-top-right-radius: 1vh;
+	border-width: 1.5px;
+}
+
+aside .tabs > div > div {
+	position: absolute;
+	width: 100%;
+	height: 90%;
+	overflow: auto;
+}
+
+
+aside .tabs > div:not(:target) > div {
+	display: none;
+}
+
+aside .tabs > div:target > div,
+#creation:target > div {
+	display: block;
+}
+
+/* Creation */
+
+#creation > div > form {
+	text-align: right;
+}
+
+#creation > div > form > p {
+	margin: 1vh;
+}
+
+#creation > div > div {
+	margin-top: 1vh;
 	text-align: center;
-	background-color: bisque;
-}
-
-aside > div > div > p {
-	margin: 0;
 }
 
 /*-------- 4. ARTICLE --------*/
@@ -148,10 +198,10 @@ article p {
 }
 
 article a {
-    position: absolute;
-    font-size: xx-small;
-    right: 3px;
-    top: 3px;
+	position: absolute;
+	font-size: xx-small;
+	right: 3px;
+	top: 3px;
 }
 
 /* Hour */
@@ -178,7 +228,7 @@ article > div#hour > p:not(:last-child) {
 article > div:not(#hour) > p {
 	border-bottom: solid;
 	border-width: 1.5px;
-    height: 2.8vh;
+	height: 2.8vh;
 }
 
 article > div > div {
@@ -205,13 +255,15 @@ article span:not(:first-child) {
 }
 
 article span > div {
-    position: relative;
-	background-color: bisque;
+	position: relative;
 	overflow: hidden;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-width: 0.5px;
 }
 
-article span > div > p{
-    position: relative;
+article span > div > p {
+	position: relative;
 	top: 6px;
 }
 

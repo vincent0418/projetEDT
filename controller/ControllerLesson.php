@@ -9,9 +9,9 @@ class ControllerLesson {
 	protected static $object = 'lesson';
     
     public static function readAll() {
-        $tab_subject = ModelSubject::selectAll();
+        $tab_subject = ModelSubject::selectByOrder();
         $tab_room = ModelRoom::selectAll();
-        $tab_teacher = ModelTeacher::selectAll();
+        $tab_teacher = ModelTeacher::selectByOrder();
 		$group = myGet('idGroup');
 		if($group != NULL) {
 			$tab_group = explode("_", $group);	// transforme la string en array

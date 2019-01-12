@@ -30,6 +30,24 @@ class ModelTeacher extends Model{
             $this->$nom_attribut = $valeur;
         return false;
     }
+	
+	// Retourne une liste des professeurs par ordre croissant des noms
+	public static function selectByOrder() {
+		try{
+			$rep = Model::$pdo->query("SELECT * 
+									   FROM sch_Teacher
+									   ORDER BY nameTeacher");
+			$rep->setFetchMode(PDO::FETCH_CLASS, "ModelTeacher");
+			$tab = $rep->fetchAll();
+		} catch(PDOException $e) {
+			if (Conf::getDebug())
+				echo $e->getMessage(); // affiche un message d'erreur
+			else
+				echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+			die();
+		}
+		return $tab;
+    }
     
     // Retourne l'id du professeur en fonction du nom et du prenom
     public static function selectIdByName($nameTeacher, $firstNameTeacher) {
