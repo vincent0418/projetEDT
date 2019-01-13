@@ -1,8 +1,8 @@
 <div class="tabs">
-	<div id="creation">
-		<a href=#creation>Création</a>
+	<div id="lesson">
+		<a href=#lesson>Cours</a>
 		<div>
-			<form method="POST" action="index.php?idGroup=<?php echo myGet('idGroup'); ?>">
+			<form method="POST" action="index.php?idGroup=<?php echo myGet('idGroup'); ?>#lesson">
 				<p>Matiere :
 					<input type="text" name="subject" list="tabSubject" required>
 					<datalist id="tabSubject">
@@ -66,31 +66,68 @@
 			?>
 		</div>
 	</div>
+	<?php
+	// preparation de l'url
+	$url = parse_url($_SERVER['REQUEST_URI']);
+	if (!isset($url['query']))
+		$url['query'] = '';
+	else
+		$url['query'] = "idGroup=".myGet('idGroup');
+	?>
 	<div id="subject">
 		<a href=#subject>Matière</a>
 		<div>
-			<?php
-			foreach ($tab_subject as $cle => $valeur) {
-				echo "<p>{$valeur->get("nameSubject")}</p>";
-			}?>
+			<table>
+				<tr>
+					<th>Nom</th>
+					<th>Supprimer</th>
+				</tr>
+				<?php
+				foreach ($tab_subject as $cle => $valeur) {
+					echo "<tr>";
+					echo "<td>{$valeur->get("nameSubject")}</td>";
+					echo "<td><a href=\"{$url['path']}?controller=subject&action=delete&idSubject={$valeur->get("idSubject")}&{$url['query']}#subject\">x</a></td>";
+					echo "</tr>";
+				}?>
+			</table>
 		</div>
 	</div>
 	<div id="room">
 		<a href=#room>Salle</a>
 		<div>
-			<?php
-			foreach ($tab_room as $cle => $valeur) {
-				echo "<p>{$valeur->get("idRoom")}</p>";
-			}?>
+			<table>
+				<tr>
+					<th>Numéro</th>
+					<th>Supprimer</th>
+				</tr>
+				<?php
+				foreach ($tab_room as $cle => $valeur) {
+					echo "<tr>";
+					echo "<td>{$valeur->get("idRoom")}</td>";
+					echo "<td><a href=\"{$url['path']}?controller=room&action=delete&idRoom={$valeur->get("idRoom")}&{$url['query']}#room\">x</a></td>";
+					echo "</tr>";
+				}?>
+			</table>
 		</div>
 	</div>
 	<div id="teacher">
 		<a href=#teacher>Professeur</a>
 		<div>
-			<?php
-			foreach ($tab_teacher as $cle => $valeur) {
-				echo "<p>{$valeur->get("firstNameTeacher")} {$valeur->get("nameTeacher")}</p>";
-			}?>
+			<table>
+				<tr>
+					<th>Prénom</th>
+					<th>Nom</th>
+					<th>Supprimer</th>
+				</tr>
+				<?php
+				foreach ($tab_teacher as $cle => $valeur) {
+					echo "<tr>";
+					echo "<td>{$valeur->get("nameTeacher")}</td>";
+					echo "<td>{$valeur->get("firstNameTeacher")}</td>";
+					echo "<td><a href=\"{$url['path']}?controller=teacher&action=delete&idTeacher={$valeur->get("idTeacher")}&{$url['query']}#teacher\">x</a></td>";
+					echo "</tr>";
+				}?>
+			</table>
 		</div>
 	</div>
 </div>

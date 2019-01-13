@@ -147,28 +147,36 @@ aside .tabs > div > div {
 	overflow: auto;
 }
 
-
 aside .tabs > div:not(:target) > div {
 	display: none;
 }
 
-aside .tabs > div:target > div,
-#creation:target > div {
+aside .tabs > div:target > div {
 	display: block;
 }
 
-/* Creation */
+/* Creation lesson */
 
-#creation > div > form {
+#lesson > div > form {
 	text-align: right;
 }
 
-#creation > div > form > p {
+#lesson > div > form > p {
 	margin: 1vh;
 }
 
-#creation > div > div {
+#lesson > div > div {
 	margin-top: 1vh;
+	text-align: center;
+}
+
+/* table */
+
+aside table {
+	width: 100%;
+}
+
+aside table > tbody > tr > td:last-child {
 	text-align: center;
 }
 

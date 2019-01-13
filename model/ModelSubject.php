@@ -10,7 +10,7 @@ class ModelSubject extends Model{
     protected $color;
         
     // Constructeur
-    public function __construct($n = NULL, $c = NULL) {
+    public function __construct($n = NULL, $c = "ffe4c4") {
       if (!is_null($n)) {
         $this->nameSubject = $n;
         $this->color = $c;

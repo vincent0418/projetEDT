@@ -1,9 +1,5 @@
 <?php
 require_once (File::build_path(array("model", "ModelLesson.php"))); // chargement du modèle
-require_once (File::build_path(array("model", "ModelSubject.php")));
-require_once (File::build_path(array("model", "ModelRoom.php")));
-require_once (File::build_path(array("model", "ModelTeacher.php")));
-
 class ControllerLesson {
 	
 	protected static $object = 'lesson';

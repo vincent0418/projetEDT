@@ -10,6 +10,15 @@
     ?>
 </div>
 
+<?php
+	// preparation de l'url pour la suppression
+	$url = parse_url($_SERVER['REQUEST_URI']);
+	if (!isset($url['query']))
+		$url['query'] = '';
+	else
+		$url['query'] = "idGroup=".myGet('idGroup');
+	?>
+
 <div id="Lundi">
 	<p>Lundi</p>
 	<div>
@@ -22,7 +31,7 @@
 					if($valeur['day'] == 'Lundi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
-                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
+								  <a href=\"{$url['path']}?action=delete&idLesson={$valeur['idLesson']}&{$url['query']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -49,7 +58,7 @@
 					if($valeur['day'] == 'Mardi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
-                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
+                                  <a href=\"{$url['path']}?action=delete&idLesson={$valeur['idLesson']}&{$url['query']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -76,7 +85,7 @@
 					if($valeur['day'] == 'Mercredi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
-                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
+                                  <a href=\"{$url['path']}?action=delete&idLesson={$valeur['idLesson']}&{$url['query']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -103,7 +112,7 @@
 					if($valeur['day'] == 'Jeudi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
-                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
+                                  <a href=\"{$url['path']}?action=delete&idLesson={$valeur['idLesson']}&{$url['query']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -130,7 +139,7 @@
 					if($valeur['day'] == 'Vendredi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
-                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
+                                  <a href=\"{$url['path']}?action=delete&idLesson={$valeur['idLesson']}&{$url['query']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
@@ -157,7 +166,7 @@
 					if($valeur['day'] == 'Samedi' && $valeur['idGroup'] == $tab_group[$j] && $valeur['hourStart']-8 == $i/4) {
 						$duration = $valeur['duration'] * 7.5;
 						echo "<div id=\"{$valeur['idLesson']}\" style=\"height:{$duration}vh; background-color:#{$valeur['color']}\" draggable=\"true\" ondragstart=\"drag(event)\">
-                                  <a href=\"{$_SERVER['REQUEST_URI']}&action=delete&idLesson={$valeur['idLesson']}\">X</a>
+                                  <a href=\"{$url['path']}?action=delete&idLesson={$valeur['idLesson']}&{$url['query']}\">X</a>
 								  <p>{$valeur['nameSubject']}</p>
 								  <p>{$valeur['idRoom']}</p>
 								  <p>{$valeur['nameTeacher']}  {$valeur['firstNameTeacher']}</p>
